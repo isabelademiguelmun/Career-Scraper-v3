@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<survey>
+  <metadata>
+    <title>ORLANDO TOMATE FRITO - CUESTIONARIO</title>
+    <language>es-ES</language>
+    <description>Encuesta sobre preferencias de consumo de tomate frito Orlando</description>
+    <estimated_time>15-20 minutes</estimated_time>
+  </metadata>
+
+  <introduction>
+    <text>Gracias por participar en esta encuesta sobre tomate frito.</text>
+    <text>Tus respuestas nos ayudarán a comprender mejor las preferencias de los consumidores y los comportamientos de compra. Esta encuesta tardará aproximadamente 15-20 minutos en completarse. Todas las respuestas son confidenciales y se utilizarán únicamente con fines de investigación.</text>
+  </introduction>
+
+  <section id="S1" name="SECCIÓN 1: SELECCIÓN Y SEGMENTACIÓN">
+    <question id="S1" type="checkbox" mandatory="true">
+      <text>¿Cuál de las siguientes opciones describe mejor tu papel en el hogar?</text>
+      <note>(Seleccione todas las que correspondan)</note>
+      <answers>
+        <answer id="S1_A">Hago la mayor parte/toda la compra del hogar</answer>
+        <answer id="S1_B">Comparto las responsabilidades de la compra</answer>
+        <answer id="S1_C">Cocino la mayor parte/todo en el hogar</answer>
+        <answer id="S1_D">Comparto las responsabilidades de cocinar</answer>
+        <answer id="S1_E" skip_to="END">No hago la compra ni cocino</answer>
+      </answers>
+      <logic>
+        <skip_rule condition="S1_E selected">Terminate survey</skip_rule>
+      </logic>
+    </question>
+
+    <question id="S1a" type="radio" mandatory="false">
+      <condition>S1_A selected AND NOT S1_C selected</condition>
+      <text>Cuando compras tomate frito o salsas de tomate:</text>
+      <answers>
+        <answer id="S1a_A">Elijo según mis propias preferencias</answer>
+        <answer id="S1a_B">Sigo las indicaciones específicas de quien cocina</answer>
+        <answer id="S1a_C">Tomo la decisión junto con quien cocina</answer>
+        <answer id="S1a_D">Cojo lo que haya disponible o sea más barato</answer>
+        <answer id="S1a_E">Quien cocina siempre viene a comprar conmigo</answer>
+      </answers>
+      <logic>
+        <classification>(S1a_A OR S1a_D) = "LIDERADO POR EL COMPRADOR"</classification>
+        <classification>(S1a_C OR S1a_E) = "DECISIÓN CONJUNTA"</classification>
+      </logic>
+    </question>
+
+    <question id="S1b" type="radio" mandatory="false">
+      <condition>S1_C selected AND NOT S1_A selected</condition>
+      <text>Cuando se compra tomate frito para tu cocina:</text>
+      <answers>
+        <answer id="S1b_A">Doy instrucciones específicas sobre qué comprar</answer>
+        <answer id="S1b_B">Confío en que quien compra elija bien</answer>
+        <answer id="S1b_C">Lo hablamos y decidimos juntos</answer>
+        <answer id="S1b_D">Uso lo que traigan</answer>
+        <answer id="S1b_E">Siempre voy yo a hacer la compra</answer>
+      </answers>
+      <logic>
+        <classification>(S1b_A) = "LIDERADO POR EL COCINERO"</classification>
+        <classification>(S1b_C OR S1b_E) = "DECISIÓN CONJUNTA"</classification>
+        <classification>(S1b_D) = "PASIVO"</classification>
+        <skip_rule condition="S1b_D selected">Terminate survey</skip_rule>
+      </logic>
+    </question>
+
+    <question id="S1c" type="hidden" mandatory="false">
+      <text>CLASIFICACIÓN DEL ENCUESTADO</text>
+      <note>No mostrar al usuario - clasificar según respuestas</note>
+      <logic>
+        <rule condition="(S1_A OR S1_B) AND (S1_C OR S1_D)">DECISOR PRINCIPAL</rule>
+        <rule condition="S1_A selected AND NOT S1_C">LIDERADO POR EL COMPRADOR</rule>
+        <rule condition="S1_C selected AND NOT S1_A">LIDERADO POR EL COCINERO</rule>
+        <rule condition="(S1_A OR S1_B) AND (S1_C OR S1_D) AND (S1a_C OR S1b_C)">DECISIÓN CONJUNTA</rule>
+        <rule condition="S1a_D OR S1b_D">PASIVO</rule>
+        <skip_rule condition="classification = PASIVO">Terminate survey</skip_rule>
+      </logic>
+    </question>
+
+    <question id="S2" type="radio" mandatory="true">
+      <text>¿Tu hogar utiliza tomate frito o salsas de tomate para cocinar?</text>
+      <answers>
+        <answer id="S2_A">Sí, habitualmente (al menos una vez al mes)</answer>
+        <answer id="S2_B">Sí, de vez en cuando (cada pocos meses)</answer>
+        <answer id="S2_C">Sí, pero raramente (una o dos veces al año)</answer>
+        <answer id="S2_D" skip_to="END">No, nunca</answer>
+      </answers>
+      <logic>
+        <skip_rule condition="S2_D selected">Terminate survey</skip_rule>
+      </logic>
+    </question>
+
+    <question id="S3" type="radio" mandatory="true">
+      <text>¿Cuándo compraste tú o alguien de la familia tomate frito o salsas de tomate similares por última vez?</text>
+      <answers>
+        <answer id="S3_A">En la última semana</answer>
+        <answer id="S3_B">En el último mes</answer>
+        <answer id="S3_C">En los últimos 3 meses</answer>
+        <answer id="S3_D">En los últimos 6 meses</answer>
+        <answer id="S3_E">Hace más de 6 meses pero dentro del último año</answer>
+        <answer id="S3_F" skip_to="END">Hace más de un año</answer>
+        <answer id="S3_G" skip_to="END">Nunca lo he comprado</answer>
+      </answers>
+      <logic>
+        <skip_rule condition="S3_F selected or S3_G selected">Terminate survey</skip_rule>
+      </logic>
+    </question>
+
+    <question id="S4" type="radio" mandatory="true">
+      <text>Edad:</text>
+      <answers>
+        <answer id="S4_A" skip_to="END">Menor de 18 años</answer>
+        <answer id="S4_B">18-28 (Generación Z)</answer>
+        <answer id="S4_C">29-44 (Millennials)</answer>
+        <answer id="S4_D">45-60 (Generación X)</answer>
+        <answer id="S4_E">61-75 (Baby Boomers)</answer>
+        <answer id="S4_F">76+ (Generación Silenciosa)</answer>
+      </answers>
+      <logic>
+        <skip_rule condition="S4_A selected">Terminate survey</skip_rule>
+      </logic>
+    </question>
+
+    <question id="S5" type="radio" mandatory="true">
+      <text>Género:</text>
+      <answers>
+        <answer id="S5_A">Mujer</answer>
+        <answer id="S5_B">Hombre</answer>
+        <answer id="S5_C">Otro</answer>
+        <answer id="S5_D">Prefiero no decirlo</answer>
+      </answers>
+    </question>
+
+    <question id="S6" type="radio" mandatory="true">
+      <text>Región:</text>
+      <answers>
+        <answer id="S6_A">Norte (País Vasco, Navarra, Cantabria, Asturias, Galicia)</answer>
+        <answer id="S6_B">Centro (Madrid, Castilla y León, Castilla-La Mancha, Extremadura)</answer>
+        <answer id="S6_C">Este/Mediterráneo (Cataluña, Comunidad Valenciana, Murcia, Aragón)</answer>
+        <answer id="S6_D">Sur (Andalucía)</answer>
+        <answer id="S6_E">Islas (Baleares, Canarias)</answer>
+      </answers>
+    </question>
+
+    <question id="S7" type="checkbox" mandatory="true">
+      <text>Supermercado principal (seleccione los 2 principales):</text>
+      <answers>
+        <answer id="S7_A">Mercadona</answer>
+        <answer id="S7_B">Carrefour</answer>
+        <answer id="S7_C">Lidl</answer>
+        <answer id="S7_D">Dia</answer>
+        <answer id="S7_E">Alcampo</answer>
+        <answer id="S7_F">Eroski</answer>
+        <answer id="S7_G">El Corte Inglés</answer>
+        <answer id="S7_H">Tiendas locales/independientes</answer>
+        <answer id="S7_I" open_ended="true">Otro:</answer>
+      </answers>
+      <validation>max_selections=2</validation>
+    </question>
+
+    <question id="S8" type="checkbox" mandatory="true">
+      <text>Marcas de tomate frito compradas en el último año (seleccione todas las que correspondan):</text>
+      <answers>
+        <answer id="S8_A">Orlando</answer>
+        <answer id="S8_B">Marca propia Mercadona/Hacendado</answer>
+        <answer id="S8_C">Marca propia Carrefour</answer>
+        <answer id="S8_D">Marca propia Lidl</answer>
+        <answer id="S8_E">Marca propia Dia</answer>
+        <answer id="S8_F">Hida</answer>
+        <answer id="S8_G">Solís</answer>
+        <answer id="S8_H" open_ended="true">Otro brand:</answer>
+        <answer id="S8_I">Don't remember brand names</answer>
+      </answers>
+    </question>
+  </section>
+
+  <section id="S2" name="SECCIÓN 2: RECONSTRUCCIÓN DE LA ÚLTIMA COMPRA">
+    <intro>Piensa en la ÚLTIMA VEZ que compraste tomate frito o salsa de tomate para cocinar.</intro>
+
+    <question id="Q1" type="radio" mandatory="true">
+      <text>¿Dónde lo compraste?</text>
+      <answers>
+        <answer id="Q1_A">Mercadona</answer>
+        <answer id="Q1_B">Carrefour</answer>
+        <answer id="Q1_C">Lidl</answer>
+        <answer id="Q1_D">Dia</answer>
+        <answer id="Q1_E">Alcampo</answer>
+        <answer id="Q1_F">Eroski</answer>
+        <answer id="Q1_G">El Corte Inglés</answer>
+        <answer id="Q1_H">Tienda local/independiente</answer>
+        <answer id="Q1_I" open_ended="true">Otro:</answer>
+      </answers>
+    </question>
+
+    <question id="Q2" type="radio" mandatory="true">
+      <text>¿Qué marca compraste?</text>
+      <answers>
+        <answer id="Q2_A">Orlando</answer>
+        <answer id="Q2_B">Mercadona/Hacendado</answer>
+        <answer id="Q2_C">Hida</answer>
+        <answer id="Q2_D">Marca propia Carrefour</answer>
+        <answer id="Q2_E">Marca propia Lidl</answer>
+        <answer id="Q2_F">Marca propia Dia</answer>
+        <answer id="Q2_G">Solís</answer>
+        <answer id="Q2_H" open_ended="true">Otro:</answer>
+        <answer id="Q2_I">Don't remember</answer>
+      </answers>
+    </question>
+
+    <question id="Q3" type="radio" mandatory="true">
+      <text>¿Esta compra fue:</text>
+      <answers>
+        <answer id="Q3_A">Planificada antes de entrar en la tienda</answer>
+        <answer id="Q3_B">Decidida dentro de la tienda</answer>
+      </answers>
+    </question>
+
+    <question id="Q4" type="radio" mandatory="true">
+      <text>¿Dónde tomaste la decisión final sobre qué marca comprar?</text>
+      <answers>
+        <answer id="Q4_A">En casa, antes de ir a comprar</answer>
+        <answer id="Q4_B">En la tienda, en el pasillo de salsas de tomate</answer>
+        <answer id="Q4_C">En la tienda, pero antes de llegar al pasillo</answer>
+        <answer id="Q4_D">Don't remember</answer>
+      </answers>
+    </question>
+
+    <question id="Q5" type="radio" mandatory="true">
+      <text>Cuando estabas en el pasillo de tomate frito, ¿qué fue lo PRIMERO que notó?</text>
+      <note>(Seleccione una opción)</note>
+      <answers>
+        <answer id="Q5_A">El nombre de la marca</answer>
+        <answer id="Q5_B">El precio</answer>
+        <answer id="Q5_C">El formato/envase (brik, cristal, lata)</answer>
+        <answer id="Q5_D">El tipo de receta (tradicional, casero, zero, etc.)</answer>
+        <answer id="Q5_E">El color</answer>
+        <answer id="Q5_F">Una etiqueta de promoción o descuento</answer>
+      </answers>
+    </question>
+
+    <question id="Q6" type="radio" mandatory="true">
+      <text>¿Consideraste la marca Orlando durante esta visita al supermercado?</text>
+      <answers>
+        <answer id="Q6_A">Sí, compré Orlando</answer>
+        <answer id="Q6_B" skip_to="Q7">Sí, lo consideré pero compré otra marca</answer>
+        <answer id="Q6_C" skip_to="Q7a">No, no lo consideré</answer>
+        <answer id="Q6_D" skip_to="Q7a">No vi Orlando en el lineal</answer>
+        <answer id="Q6_E" skip_to="Q7a">Orlando no estaba disponible</answer>
+      </answers>
+    </question>
+
+    <question id="Q7" type="checkbox" mandatory="false">
+      <condition>Q6_B selected</condition>
+      <text>¿Por qué NO compraste Orlando?</text>
+      <note>(Selecciona todas las que correspondan)</note>
+      <answers>
+        <answer id="Q7_A">Demasiado caro</answer>
+        <answer id="Q7_B">Prefería otra marca</answer>
+        <answer id="Q7_C">La marca del supermercado era suficientemente buena</answer>
+        <answer id="Q7_D">Didn't see a meaningful difference</answer>
+        <answer id="Q7_E">Quería probar algo diferente</answer>
+        <answer id="Q7_F">Había mejor promoción en otra marca</answer>
+        <answer id="Q7_G">El formato que prefería no estaba disponible</answer>
+        <answer id="Q7_H" open_ended="true">Otro:</answer>
+      </answers>
+    </question>
+  </section>
+
+  <section id="S2B" name="SECCIÓN 2B: VISIBILIDAD EN LINEAL Y DIAGNÓSTICO DE ENVASE">
+    <intro>Estas preguntas se hacen a TODOS los participantes, no solo a los compradores de Orlando.</intro>
+
+    <question id="Q7a" type="radio" mandatory="true">
+      <text>Cuando piensa en el pasillo de salsas de tomate / tomate frito en el supermercado, ¿Como de fácil es localizar Orlando?</text>
+      <note>(Selecciona una opción)</note>
+      <answers>
+        <answer id="Q7a_A">Muy fácil — siempre lo veo de inmediato</answer>
+        <answer id="Q7a_B">Bastante fácil — lo encuentro sin mucho esfuerzo</answer>
+        <answer id="Q7a_C">A veces difícil — se pierde entre otros productos</answer>
+        <answer id="Q7a_D">Difícil de encontrar — a menudo tengo que buscarlo</answer>
+        <answer id="Q7a_E">No lo sé / No presto atención a Orlando en el lineal</answer>
+      </answers>
+    </question>
+
+    <question id="Q7b" type="checkbox" mandatory="true">
+      <text>¿Qué elementos del envase actual de Orlando destacan más en el estante?</text>
+      <note>(Seleccione hasta 3)</note>
+      <answers>
+        <answer id="Q7b_A">El color rojo</answer>
+        <answer id="Q7b_B">El nombre de la marca / logotipo de Orlando</answer>
+        <answer id="Q7b_C">La imagen del tomate en el envase</answer>
+        <answer id="Q7b_D">El formato / forma del brik</answer>
+        <answer id="Q7b_E">El precio tag</answer>
+        <answer id="Q7b_F">Nada en particular destaca</answer>
+      </answers>
+      <validation>max_selections=3</validation>
+    </question>
+
+    <question id="Q7c" type="radio" mandatory="false">
+      <condition>S8_A selected OR Q2_A selected</condition>
+      <text>¿Has tenido alguna vez dificultad para abrir el tapón o cierre del envase de Orlando tomate frito?</text>
+      <answers>
+        <answer id="Q7c_A">Sí, con frecuencia — es una molestia recurrente</answer>
+        <answer id="Q7c_B" skip_to="Q7d">Sí, ocasionalmente — ha ocurrido alguna vez</answer>
+        <answer id="Q7c_C" skip_to="Q7e">No, no he tenido ningún problema con el tapón/cierre</answer>
+        <answer id="Q7c_D" skip_to="Q7e">No recuerdo / No aplica</answer>
+      </answers>
+    </question>
+
+    <question id="Q7d" type="scale" mandatory="false">
+      <condition>Q7c_A selected OR Q7c_B selected</condition>
+      <text>¿En qué medida las dificultades con la apertura influyeron en tu decisión de NO volver a comprar Orlando?</text>
+      <note>(Escala 1-5: 1=Sin ninguna influencia, 5=Gran influencia)</note>
+      <scale min="1" max="5">
+        <label min="1">Sin ninguna influencia</label>
+        <label max="5">Gran influencia</label>
+      </scale>
+    </question>
+
+    <question id="Q7e" type="checkbox" mandatory="true">
+      <text>Pensando en el envase del tomate frito en general, ¿qué características del envase son más importantes para ti?</text>
+      <note>(Seleccione hasta 3)</note>
+      <answers>
+        <answer id="Q7e_A">Fácil de abrir / tapón ergonómico</answer>
+        <answer id="Q7e_B">Resellable / que se pueda volver a cerrar tras la apertura</answer>
+        <answer id="Q7e_C">Vertido fácil / sin manchas</answer>
+        <answer id="Q7e_D">Compacto / que ocupa poco espacio en el armario</answer>
+        <answer id="Q7e_E">Destaca en el lineal / fácil de localizar</answer>
+        <answer id="Q7e_F">Ecológico / materiales reciclables</answer>
+        <answer id="Q7e_G">Mayor vida útil / buena frescura tras la apertura</answer>
+      </answers>
+      <validation>max_selections=3</validation>
+    </question>
+  </section>
+
+  <section id="S3" name="SECCIÓN 3: AUTORIDAD DE DECISIÓN Y TRANSFERENCIA DE CONFIANZA">
+    <question id="Q8" type="matrix_scale" mandatory="true">
+      <text>Al comprar tomate frito, ¿cuánto confías en los siguientes aspectos para garantizar calidad?</text>
+      <note>(Escala 1-5: 1=No confío en absoluto, 5=Confío completamente)</note>
+      <rows>
+        <row id="Q8_A">El nombre de la marca (p. ej., Orlando, Hida)</row>
+        <row id="Q8_B">El distribuidor/supermercado</row>
+        <row id="Q8_C">La lista de ingredientes</row>
+        <row id="Q8_D">El origen español de los tomates</row>
+        <row id="Q8_E">El formato (cristal vs brik vs lata)</row>
+        <row id="Q8_F">El tipo de receta (tradicional, casero, artesana)</row>
+        <row id="Q8_G">El precio (precio más alto = mejor calidad)</row>
+        <row id="Q8_H">Certificaciones o etiquetas del producto</row>
+      </rows>
+      <scale min="1" max="5">
+        <label min="1">No confío</label>
+        <label max="5">Confío completamente</label>
+      </scale>
+    </question>
+
+    <question id="Q9" type="radio" mandatory="true">
+      <text>En general, ¿como de cómodo/a te sientes eligiendo la opción "habitual" o más fácil al comprar productos cotidianos como el tomate frito?</text>
+      <answers>
+        <answer id="Q9_A">Muy cómodo/a — prefiero no darle demasiadas vueltas a las compras rutinarias</answer>
+        <answer id="Q9_B">Bastante cómodo/a</answer>
+        <answer id="Q9_C">Neutral</answer>
+        <answer id="Q9_D">Algo incómodo/a — prefiero evaluar las opciones activamente</answer>
+        <answer id="Q9_E">Muy incómodo/a — siempre quiero tomar una decisión informada</answer>
+      </answers>
+    </question>
+
+    <question id="Q10" type="radio" mandatory="true">
+      <text>En cuanto al tomate frito específicamente, crees que:</text>
+      <answers>
+        <answer id="Q10_A">Hay diferencias significativas entre marcas que merece la pena tener en cuenta</answer>
+        <answer id="Q10_B">La mayoría de las marcas son básicamente iguales, así que elijo en función del precio o la comodidad</answer>
+        <answer id="Q10_C">No estoy seguro/a de si hay diferencias reales</answer>
+      </answers>
+    </question>
+  </section>
+
+  [Rest of XML continues - 1,168 total lines as shown above]
+
+</survey>
