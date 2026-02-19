@@ -1,0 +1,1059 @@
+ORLANDO TOMATE FRITO - CUESTIONARIO DYNATA
+============================================
+
+SURVEY METADATA
+Title: Orlando Tomate Frito - Consumer Questionnaire
+Language: Spanish (Spain)
+Duration: 15-20 minutes
+Status: Active
+
+---
+
+INTRODUCTION
+Gracias por participar en esta encuesta sobre tomate frito.
+
+Tus respuestas nos ayudarán a comprender mejor las preferencias de los consumidores y los comportamientos de compra. Esta encuesta tardará aproximadamente 15-20 minutos en completarse. Todas las respuestas son confidenciales y se utilizarán únicamente con fines de investigación.
+
+---
+
+SECTION 1: SELECCIÓN Y SEGMENTACIÓN
+
+Q_S1: ¿Cuál de las siguientes opciones describe mejor tu papel en el hogar?
+TYPE: Multiple Select
+MANDATORY: Yes
+OPTIONS:
+  S1_A: Hago la mayor parte/toda la compra del hogar
+  S1_B: Comparto las responsabilidades de la compra
+  S1_C: Cocino la mayor parte/todo en el hogar
+  S1_D: Comparto las responsabilidades de cocinar
+  S1_E: No hago la compra ni cocino [SKIP TO END]
+
+Q_S1a: Cuando compras tomate frito o salsas de tomate:
+TYPE: Single Select
+MANDATORY: No
+CONDITION: IF Q_S1 = S1_A AND NOT Q_S1 = S1_C
+OPTIONS:
+  S1a_A: Elijo según mis propias preferencias
+  S1a_B: Sigo las indicaciones específicas de quien cocina
+  S1a_C: Tomo la decisión junto con quien cocina
+  S1a_D: Cojo lo que haya disponible o sea más barato
+  S1a_E: Quien cocina siempre viene a comprar conmigo
+
+Q_S1b: Cuando se compra tomate frito para tu cocina:
+TYPE: Single Select
+MANDATORY: No
+CONDITION: IF Q_S1 = S1_C AND NOT Q_S1 = S1_A
+OPTIONS:
+  S1b_A: Doy instrucciones específicas sobre qué comprar
+  S1b_B: Confío en que quien compra elija bien
+  S1b_C: Lo hablamos y decidimos juntos
+  S1b_D: Uso lo que traigan [SKIP TO END]
+  S1b_E: Siempre voy yo a hacer la compra
+
+Q_S1c: [HIDDEN - Classification Question] CLASIFICACIÓN DEL ENCUESTADO
+TYPE: Hidden
+MANDATORY: No
+LOGIC:
+  IF (Q_S1 = S1_A OR Q_S1 = S1_B) AND (Q_S1 = S1_C OR Q_S1 = S1_D): DECISOR PRINCIPAL
+  IF Q_S1 = S1_A AND NOT Q_S1 = S1_C: LIDERADO POR EL COMPRADOR
+  IF Q_S1 = S1_C AND NOT Q_S1 = S1_A: LIDERADO POR EL COCINERO
+  IF (Q_S1 = S1_A OR Q_S1 = S1_B) AND (Q_S1 = S1_C OR Q_S1 = S1_D) AND (Q_S1a = S1a_C OR Q_S1b = S1b_C): DECISIÓN CONJUNTA
+  IF Q_S1a = S1a_D OR Q_S1b = S1b_D: PASIVO [SKIP TO END]
+
+Q_S2: ¿Tu hogar utiliza tomate frito o salsas de tomate para cocinar?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  S2_A: Sí, habitualmente (al menos una vez al mes)
+  S2_B: Sí, de vez en cuando (cada pocos meses)
+  S2_C: Sí, pero raramente (una o dos veces al año)
+  S2_D: No, nunca [SKIP TO END]
+
+Q_S3: ¿Cuándo compraste tú o alguien de la familia tomate frito o salsas de tomate similares por última vez?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  S3_A: En la última semana
+  S3_B: En el último mes
+  S3_C: En los últimos 3 meses
+  S3_D: En los últimos 6 meses
+  S3_E: Hace más de 6 meses pero dentro del último año
+  S3_F: Hace más de un año [SKIP TO END]
+  S3_G: Nunca lo he comprado [SKIP TO END]
+
+Q_S4: Edad:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  S4_A: Menor de 18 años [SKIP TO END]
+  S4_B: 18-28 (Generación Z)
+  S4_C: 29-44 (Millennials)
+  S4_D: 45-60 (Generación X)
+  S4_E: 61-75 (Baby Boomers)
+  S4_F: 76+ (Generación Silenciosa)
+
+Q_S5: Género:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  S5_A: Mujer
+  S5_B: Hombre
+  S5_C: Otro
+  S5_D: Prefiero no decirlo
+
+Q_S6: Región:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  S6_A: Norte (País Vasco, Navarra, Cantabria, Asturias, Galicia)
+  S6_B: Centro (Madrid, Castilla y León, Castilla-La Mancha, Extremadura)
+  S6_C: Este/Mediterráneo (Cataluña, Comunidad Valenciana, Murcia, Aragón)
+  S6_D: Sur (Andalucía)
+  S6_E: Islas (Baleares, Canarias)
+
+Q_S7: Supermercado principal (seleccione los 2 principales):
+TYPE: Multiple Select (Max 2)
+MANDATORY: Yes
+OPTIONS:
+  S7_A: Mercadona
+  S7_B: Carrefour
+  S7_C: Lidl
+  S7_D: Dia
+  S7_E: Alcampo
+  S7_F: Eroski
+  S7_G: El Corte Inglés
+  S7_H: Tiendas locales/independientes
+  S7_I: Otro [TEXT INPUT]
+
+Q_S8: Marcas de tomate frito compradas en el último año (seleccione todas las que correspondan):
+TYPE: Multiple Select
+MANDATORY: Yes
+OPTIONS:
+  S8_A: Orlando
+  S8_B: Marca propia Mercadona/Hacendado
+  S8_C: Marca propia Carrefour
+  S8_D: Marca propia Lidl
+  S8_E: Marca propia Dia
+  S8_F: Hida
+  S8_G: Solís
+  S8_H: Otro [TEXT INPUT]
+  S8_I: Don't remember brand names
+
+---
+
+SECTION 2: RECONSTRUCCIÓN DE LA ÚLTIMA COMPRA
+
+INTRO: Piensa en la ÚLTIMA VEZ que compraste tomate frito o salsa de tomate para cocinar.
+
+Q_01: ¿Dónde lo compraste?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q1_A: Mercadona
+  Q1_B: Carrefour
+  Q1_C: Lidl
+  Q1_D: Dia
+  Q1_E: Alcampo
+  Q1_F: Eroski
+  Q1_G: El Corte Inglés
+  Q1_H: Tienda local/independiente
+  Q1_I: Otro [TEXT INPUT]
+
+Q_02: ¿Qué marca compraste?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q2_A: Orlando
+  Q2_B: Mercadona/Hacendado
+  Q2_C: Hida
+  Q2_D: Marca propia Carrefour
+  Q2_E: Marca propia Lidl
+  Q2_F: Marca propia Dia
+  Q2_G: Solís
+  Q2_H: Otro [TEXT INPUT]
+  Q2_I: Don't remember
+
+Q_03: ¿Esta compra fue:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q3_A: Planificada antes de entrar en la tienda
+  Q3_B: Decidida dentro de la tienda
+
+Q_04: ¿Dónde tomaste la decisión final sobre qué marca comprar?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q4_A: En casa, antes de ir a comprar
+  Q4_B: En la tienda, en el pasillo de salsas de tomate
+  Q4_C: En la tienda, pero antes de llegar al pasillo
+  Q4_D: Don't remember
+
+Q_05: Cuando estabas en el pasillo de tomate frito, ¿qué fue lo PRIMERO que notó?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q5_A: El nombre de la marca
+  Q5_B: El precio
+  Q5_C: El formato/envase (brik, cristal, lata)
+  Q5_D: El tipo de receta (tradicional, casero, zero, etc.)
+  Q5_E: El color
+  Q5_F: Una etiqueta de promoción o descuento
+
+Q_06: ¿Consideraste la marca Orlando durante esta visita al supermercado?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q6_A: Sí, compré Orlando
+  Q6_B: Sí, lo consideré pero compré otra marca [SKIP TO Q_07a]
+  Q6_C: No, no lo consideré [SKIP TO Q_07a]
+  Q6_D: No vi Orlando en el lineal [SKIP TO Q_07a]
+  Q6_E: Orlando no estaba disponible [SKIP TO Q_07a]
+
+Q_07: ¿Por qué NO compraste Orlando?
+TYPE: Multiple Select
+MANDATORY: No
+CONDITION: IF Q_06 = Q6_B
+OPTIONS:
+  Q7_A: Demasiado caro
+  Q7_B: Prefería otra marca
+  Q7_C: La marca del supermercado era suficientemente buena
+  Q7_D: Didn't see a meaningful difference
+  Q7_E: Quería probar algo diferente
+  Q7_F: Había mejor promoción en otra marca
+  Q7_G: El formato que prefería no estaba disponible
+  Q7_H: Otro [TEXT INPUT]
+
+---
+
+SECTION 2B: VISIBILIDAD EN LINEAL Y DIAGNÓSTICO DE ENVASE
+
+INTRO: Estas preguntas se hacen a TODOS los participantes, no solo a los compradores de Orlando.
+
+Q_07a: Cuando piensa en el pasillo de salsas de tomate / tomate frito en el supermercado, ¿Cómo de fácil es localizar Orlando?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q7a_A: Muy fácil — siempre lo veo de inmediato
+  Q7a_B: Bastante fácil — lo encuentro sin mucho esfuerzo
+  Q7a_C: A veces difícil — se pierde entre otros productos
+  Q7a_D: Difícil de encontrar — a menudo tengo que buscarlo
+  Q7a_E: No lo sé / No presto atención a Orlando en el lineal
+
+Q_07b: ¿Qué elementos del envase actual de Orlando destacan más en el estante?
+TYPE: Multiple Select (Max 3)
+MANDATORY: Yes
+OPTIONS:
+  Q7b_A: El color rojo
+  Q7b_B: El nombre de la marca / logotipo de Orlando
+  Q7b_C: La imagen del tomate en el envase
+  Q7b_D: El formato / forma del brik
+  Q7b_E: El precio tag
+  Q7b_F: Nada en particular destaca
+
+Q_07c: ¿Has tenido alguna vez dificultad para abrir el tapón o cierre del envase de Orlando tomate frito?
+TYPE: Single Select
+MANDATORY: No
+CONDITION: IF Q_S8 = S8_A OR Q_02 = Q2_A
+OPTIONS:
+  Q7c_A: Sí, con frecuencia — es una molestia recurrente
+  Q7c_B: Sí, ocasionalmente — ha ocurrido alguna vez [SKIP TO Q_07d]
+  Q7c_C: No, no he tenido ningún problema con el tapón/cierre [SKIP TO Q_07e]
+  Q7c_D: No recuerdo / No aplica [SKIP TO Q_07e]
+
+Q_07d: ¿En qué medida las dificultades con la apertura influyeron en tu decisión de NO volver a comprar Orlando?
+TYPE: Scale (1-5)
+MANDATORY: No
+CONDITION: IF Q_07c = Q7c_A OR Q_07c = Q7c_B
+SCALE:
+  1: Sin ninguna influencia
+  5: Gran influencia
+
+Q_07e: Pensando en el envase del tomate frito en general, ¿qué características del envase son más importantes para ti?
+TYPE: Multiple Select (Max 3)
+MANDATORY: Yes
+OPTIONS:
+  Q7e_A: Fácil de abrir / tapón ergonómico
+  Q7e_B: Resellable / que se pueda volver a cerrar tras la apertura
+  Q7e_C: Vertido fácil / sin manchas
+  Q7e_D: Compacto / que ocupa poco espacio en el armario
+  Q7e_E: Destaca en el lineal / fácil de localizar
+  Q7e_F: Ecológico / materiales reciclables
+  Q7e_G: Mayor vida útil / buena frescura tras la apertura
+
+---
+
+SECTION 3: AUTORIDAD DE DECISIÓN Y TRANSFERENCIA DE CONFIANZA
+
+Q_08: Al comprar tomate frito, ¿cuánto confías en los siguientes aspectos para garantizar calidad?
+TYPE: Matrix Scale (1-5 for each row)
+MANDATORY: Yes
+ROWS:
+  Q8_A: El nombre de la marca (p. ej., Orlando, Hida)
+  Q8_B: El distribuidor/supermercado
+  Q8_C: La lista de ingredientes
+  Q8_D: El origen español de los tomates
+  Q8_E: El formato (cristal vs brik vs lata)
+  Q8_F: El tipo de receta (tradicional, casero, artesana)
+  Q8_G: El precio (precio más alto = mejor calidad)
+  Q8_H: Certificaciones o etiquetas del producto
+SCALE:
+  1: No confío en absoluto
+  5: Confío completamente
+
+Q_09: En general, ¿cómo de cómodo/a te sientes eligiendo la opción "habitual" o más fácil al comprar productos cotidianos como el tomate frito?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q9_A: Muy cómodo/a — prefiero no darle demasiadas vueltas a las compras rutinarias
+  Q9_B: Bastante cómodo/a
+  Q9_C: Neutral
+  Q9_D: Algo incómodo/a — prefiero evaluar las opciones activamente
+  Q9_E: Muy incómodo/a — siempre quiero tomar una decisión informada
+
+Q_10: En cuanto al tomate frito específicamente, crees que:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q10_A: Hay diferencias significativas entre marcas que merece la pena tener en cuenta
+  Q10_B: La mayoría de las marcas son básicamente iguales, así que elijo en función del precio o la comodidad
+  Q10_C: No estoy seguro/a de si hay diferencias reales
+
+---
+
+SECTION 4: ESFUERZO COGNITIVO Y SIMPLIFICACIÓN DE CATEGORÍA
+
+Q_11: Cuando compras tomate frito, tener muchas variedades diferentes (tradicional, casero, zero, artesana, etc.) te hace sentir:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q11_A: Positivo/a — agradezco tener opciones para elegir lo que se adapta a mis necesidades
+  Q11_B: Neutral — no me importa demasiado
+  Q11_C: Negativo/a — es confuso y hace la decisión más difícil
+  Q11_D: Nunca me lo he planteado realmente
+
+Q_12: ¿Crees que la marca Orlando hace que elegir tomate frito sea:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q12_A: Más fácil — es una referencia de confianza que simplifica la elección
+  Q12_B: Más difícil — demasiadas variedades, diferencias poco claras
+  Q12_C: Sin impacto — no afecta a mi decisión de ninguna manera
+  Q12_D: No conozco suficientemente bien Orlando para opinar
+
+---
+
+SECTION 5: RECETAS Y FORMATOS — SIGNIFICADO MÁS ALLÁ DEL USO
+
+Q_13: Cuando piensa en los siguientes formatos, ¿qué te transmiten?
+TYPE: Matrix Scale (1-5 for each cell)
+MANDATORY: Yes
+MATRIX:
+  Formats:
+    - Formato Brik
+    - Tarro de Cristal
+    - Lata
+  Attributes:
+    - Calidad
+    - Comodidad
+    - Relación calidad-precio
+    - Moderno
+    - Tradicional
+    - Cuidado/esmero
+SCALE:
+  1: Nada en absoluto
+  5: Mucho
+
+Q_14: Cuando ves estas descripciones de recetas en el tomate frito, ¿qué significan para ti?
+TYPE: Multiple Question Set (One per recipe type)
+MANDATORY: Yes
+
+Q_14a: "Traditional Tomate Frito"
+TYPE: Multiple Select
+OPTIONS:
+  Q14a_A: Opción básica para el día a día
+  Q14a_B: Receta clásica y auténtica
+  Q14a_C: Nada especial
+  Q14a_D: Elección fiable
+  Q14a_E: Otro [TEXT INPUT]
+
+Q_14b: "Casero" (Homestyle)
+TYPE: Multiple Select
+OPTIONS:
+  Q14b_A: Mejor calidad
+  Q14b_B: Elaborado con más esmero
+  Q14b_C: Como el hecho en casa
+  Q14b_D: Reclamo de marketing sin diferencia real
+  Q14b_E: Otro [TEXT INPUT]
+
+Q_14c: "Artesana" (Artisan)
+TYPE: Multiple Select
+OPTIONS:
+  Q14c_A: Calidad premium
+  Q14c_B: Producción en pequeñas cantidades y con cuidado
+  Q14c_C: Demasiado caro
+  Q14c_D: No sé qué significa
+  Q14c_E: Otro [TEXT INPUT]
+
+Q_14d: "Zero" (low sugar/salt)
+TYPE: Multiple Select
+OPTIONS:
+  Q14d_A: Opción más saludable
+  Q14d_B: Con menos sabor
+  Q14d_C: Para necesidades dietéticas específicas
+  Q14d_D: Moderno/innovador
+  Q14d_E: Otro [TEXT INPUT]
+
+Q_14e: "Eco/Organic"
+TYPE: Multiple Select
+OPTIONS:
+  Q14e_A: Mejor para el medio ambiente
+  Q14e_B: Mejor calidad de ingredientes
+  Q14e_C: Demasiado caro
+  Q14e_D: Para consumidores concienciados con la salud
+  Q14e_E: Otro [TEXT INPUT]
+
+Q_15: En tu hogar, estas recetas con valor añadido (Casero, Artesana, Zero, Eco):
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q15_A: Se eligen activamente para ocasiones o necesidades específicas
+  Q15_B: Se aceptan como opción por defecto si es lo que hay disponible
+  Q15_C: Se evitan — prefiero el tradicional
+  Q15_D: Nunca los he probado
+  Q15_E: No presto atención a estas diferencias
+
+---
+
+SECTION 6: LEGITIMIDAD DEL PRECIO Y PERCEPCIÓN DE VALOR
+
+Q_16: Aproximadamente, ¿cuál es el precio habitual que pagas por tomate frito? (por unidad de 350g-400g)
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q16_A: Menos de 0,50 €
+  Q16_B: €0.50 - €1.00
+  Q16_C: €1.00 - €1.50
+  Q16_D: €1.50 - €2.00
+  Q16_E: €2.00 - €2.50
+  Q16_F: €2.50 - €3.00
+  Q16_G: Más de 3,00 €
+  Q16_H: No lo sé / No me acuerdo
+
+Q_17: ¿En qué casos te parecería justificado pagar MÁS por el tomate frito?
+TYPE: Multiple Select
+MANDATORY: Yes
+OPTIONS:
+  Q17_A: Tomates de una región española específica
+  Q17_B: Ingredientes ecológicos o certificados
+  Q17_C: Sin azúcar ni sal añadidos
+  Q17_D: Tarro de cristal en lugar de brik
+  Q17_E: Receta única o de calidad de restaurante
+  Q17_F: Marca conocida y de confianza
+  Q17_G: Nada justificaría pagar más
+  Q17_H: Otro [TEXT INPUT]
+
+---
+
+SECTION 7: CAMBIO DE MARCA Y DINÁMICA DE PÉRDIDA DE COMPRADORES
+
+Q_18: En los últimos 2 años, tu elección de marca de tomate frito:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q18_A: Se ha mantenido igual — compro siempre la misma marca
+  Q18_B: Ha cambiado — cambié de una marca a otra
+  Q18_C: Se ha vuelto más variable — alterno entre marcas
+  Q18_D: No me recuerdo / no presto atención
+
+Q_19: ¿Qué marca(s) comprabas habitualmente?
+TYPE: Multiple Select
+MANDATORY: No
+CONDITION: IF Q_18 = Q18_B OR Q_18 = Q18_C
+OPTIONS:
+  Q19_A: Orlando
+  Q19_B: Mercadona/Hacendado
+  Q19_C: Hida
+  Q19_D: Otro private label
+  Q19_E: Solís
+  Q19_F: Otro [TEXT INPUT]
+
+Q_20: ¿Por qué dejaste de comprar Orlando?
+TYPE: Multiple Select
+MANDATORY: No
+CONDITION: IF Q_19 = Q19_A OR Q_02 = Q2_A
+OPTIONS:
+  Q20_A: Subida de precio
+  Q20_B: Encontré una alternativa más barata igual de buena
+  Q20_C: Cambié de supermercado
+  Q20_D: Quería probar algo nuevo
+  Q20_E: No veía razón para pagar más
+  Q20_F: La calidad no era diferente a las opciones más baratas
+  Q20_G: Recomendación de alguien
+  Q20_H: Otro [TEXT INPUT]
+
+Q_21: ¿Tu cambio fue:
+TYPE: Single Select
+MANDATORY: No
+CONDITION: IF Q_20 is answered (any option)
+OPTIONS:
+  Q21_A: Una decisión deliberada y planificada
+  Q21_B: Un alejamiento gradual con el tiempo
+  Q21_C: Situacional — ocurrió una vez y no volví
+  Q21_D: Realmente no lo recuerdo
+
+Q_22: ¿Crees que volverás a comprar Orlando en el futuro?
+TYPE: Single Select
+MANDATORY: No
+CONDITION: IF Q_20 is answered (any option)
+OPTIONS:
+  Q22_A: Sí, definitivamente — estoy abierto/a a volver
+  Q22_B: Quizás, si hubiera una buena razón
+  Q22_C: Probablemente no — estoy satisfecho/a con mi elección actual
+  Q22_D: No, he cambiado definitivamente
+  Q22_E: No me lo he planteado
+
+---
+
+SECTION 8: PERCEPCIÓN DEL PORTFOLIO DE ORLANDO
+
+Q_23: ¿Qué tan familiarizado/a estás con la marca Orlando?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q23_A: Muy familiarizado/a — conozco bien la marca y sus diferentes productos
+  Q23_B: Bastante familiarizado/a — la reconozco pero no conozco los detalles
+  Q23_C: Poco familiarizado/a — la he visto pero no sé mucho
+  Q23_D: No familiarizado/a — realmente no conozco Orlando
+  Q23_E: Nunca he oído hablar de ella
+
+Q_24: ¿Qué variedades/recetas de Orlando conoces?
+TYPE: Multiple Select
+MANDATORY: No
+CONDITION: IF Q_23 = Q23_A OR Q_23 = Q23_B OR Q_23 = Q23_C
+OPTIONS:
+  Q24_A: Tomate Frito Tradicional
+  Q24_B: Orlando Casero
+  Q24_C: Orlando Artesana
+  Q24_D: Orlando Zero
+  Q24_E: Orlando Eco/Orgánico
+  Q24_F: Orlando con sabores específicos (con ajo, con hierbas, etc.)
+  Q24_G: No estoy seguro/a / no recuerdo variedades específicas
+
+Q_25: ¿Entiendes las diferencias entre las variedades de Orlando?
+TYPE: Single Select
+MANDATORY: No
+CONDITION: IF Q_24 is answered AND (Q_24 = Q24_A OR Q_24 = Q24_B OR Q_24 = Q24_C OR Q_24 = Q24_D OR Q_24 = Q24_E OR Q_24 = Q24_F)
+OPTIONS:
+  Q25_A: Sí, tengo muy claro lo que ofrece cada una
+  Q25_B: Más o menos — tengo una idea general
+  Q25_C: No realmente — me parecen similares
+  Q25_D: No — es confuso
+
+Q_26: ¿Cómo describirías el papel de Orlando en la categoría de tomate frito?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q26_A: La marca de referencia — el estándar con el que se comparan las demás
+  Q26_B: Una opción premium para ocasiones especiales
+  Q26_C: Una opción más entre muchas — no especialmente destacada
+  Q26_D: Una marca anticuada que está siendo superada
+  Q26_E: No tengo opinión
+  Q26_F: Otro [TEXT INPUT]
+
+Q_27: ¿Cuáles son los principales PUNTOS FUERTES de Orlando?
+TYPE: Text Long
+MANDATORY: Yes
+PROMPT: (Pregunta abierta)
+
+Q_28: ¿Cuáles son los principales PUNTOS DÉBILES de Orlando?
+TYPE: Text Long
+MANDATORY: Yes
+PROMPT: (Pregunta abierta)
+
+---
+
+SECTION 9: ANÁLISIS EN PROFUNDIDAD DEL DISTRIBUIDOR — COMPRADORES DE MERCADONA
+
+Q_29: ¿Con qué frecuencia compras en Mercadona?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q29_A: Es mi supermercado principal — compro allí semanalmente o más
+  Q29_B: Habitualmente — 2-3 veces al mes
+  Q29_C: Ocasionalmente — una vez al mes o menos
+  Q29_D: Raramente
+  Q29_E: Nunca [SKIP TO Q_38]
+  Q29_F: No hay Mercadona cerca de mí [SKIP TO Q_38]
+
+Q_30: ¿Por qué eliges comprar en Mercadona?
+TYPE: Multiple Select
+MANDATORY: Yes
+CONDITION: IF Q_29 = Q29_A OR Q_29 = Q29_B OR Q_29 = Q29_C OR Q_29 = Q29_D
+OPTIONS:
+  Q30_A: Ubicación conveniente
+  Q30_B: Buenos precios
+  Q30_C: Confianza en la calidad de sus productos
+  Q30_D: Buena selección
+  Q30_E: Experiencia de compra eficiente
+  Q30_F: Calidad de su marca propia (Hacendado)
+  Q30_G: Productos frescos
+  Q30_H: Otro [TEXT INPUT]
+
+Q_31: Al comprar en Mercadona concretamente, ¿crees que su marca blanca, Hacendado, es:
+TYPE: Single Select
+MANDATORY: Yes
+CONDITION: IF Q_29 = Q29_A OR Q_29 = Q29_B OR Q_29 = Q29_C OR Q_29 = Q29_D
+OPTIONS:
+  Q31_A: Igual de fiable que marcas de fabricante como Orlando
+  Q31_B: Más fiable que las marcas de fabricante
+  Q31_C: Menos fiable que las marcas de fabricante
+  Q31_D: Sin opinión
+
+Q_32: ¿Qué opinión tienes sobre los productos Hacendado en general?
+TYPE: Single Select
+MANDATORY: Yes
+CONDITION: IF Q_29 = Q29_A OR Q_29 = Q29_B OR Q_29 = Q29_C OR Q_29 = Q29_D
+OPTIONS:
+  Q32_A: Excelente calidad, comparable a las marcas líderes
+  Q32_B: Buena calidad para el precio
+  Q32_C: Aceptable para la mayoría de las cosas
+  Q32_D: Variable — algunos productos son buenos, otros no
+  Q32_E: Calidad inferior a las marcas
+  Q32_F: Sin opinión firme
+
+Q_33: ¿Cómo percibes Hacendado?
+TYPE: Single Select
+MANDATORY: Yes
+CONDITION: IF Q_29 = Q29_A OR Q_29 = Q29_B OR Q_29 = Q29_C OR Q_29 = Q29_D
+OPTIONS:
+  Q33_A: Una marca como cualquier otra
+  Q33_B: Una garantía de Mercadona de que el producto es bueno
+  Q33_C: Una alternativa económica
+  Q33_D: La elección inteligente
+  Q33_E: Otro [TEXT INPUT]
+
+Q_35: ¿Comprar en Mercadona ha cambiado tu percepción de las marcas de fabricantes como Orlando?
+TYPE: Single Select
+MANDATORY: Yes
+CONDITION: IF Q_29 = Q29_A OR Q_29 = Q29_B OR Q_29 = Q29_C OR Q_29 = Q29_D
+OPTIONS:
+  Q35_A: Sí — ahora las valoro menos
+  Q35_B: Sí — ahora las valoro más (deben ser buenas para estar en Mercadona)
+  Q35_C: No — no ha cambiado mi percepción
+  Q35_D: No me lo he planteado
+
+---
+
+SECTION 10: TEST DE CONCEPTOS DE INNOVACIÓN Y ACEPTACIÓN
+
+INTRO: Vamos a mostrarte algunos conceptos de NUEVOS productos. Para cada uno, díganos tu opinión sincera.
+
+--- CONCEPTO A: ALTERNATIVAS RICAS EN NUTRIENTES DE ORLANDO ---
+
+CONCEPT_A_INTRO:
+Gama de tomate frito Orlando con perfiles nutricionales mejorados para responder a necesidades específicas de salud y bienestar. Tres subvariantes:
+(1) Frito + Proteína — tomate frito enriquecido con proteína vegetal natural (+20 g por ración);
+(2) Frito + Fibra — tomate frito con fibra añadida (+5 g por ración) para favorecer la salud digestiva;
+(3) Frito Sin Azúcares Añadidos — tomate frito sin azúcares añadidos, para consumidores que controlan su ingesta de azúcar.
+
+Todas las variantes mantienen el sabor y el formato brik habitual de Orlando, con indicaciones nutricionales claras en el envase. Posicionado como "Evolución hacia una salud integral" — alternativas ricas en nutrientes para el cocinero concienciado con su salud.
+
+Q_36: En general, ¿cuánto te atrae este concepto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q36_A: Muy atractivo
+  Q36_B: Bastante atractivo
+  Q36_C: Neutral
+  Q36_D: Poco atractivo
+  Q36_E: Nada atractivo
+
+Q_37: ¿Qué relevancia tendría este producto en tu vida cotidiana?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q37_A: Muy relevante — lo usaría habitualmente
+  Q37_B: Bastante relevante — lo usaría ocasionalmente
+  Q37_C: Algo relevante — podría probarlo una vez
+  Q37_D: No relevante — no lo usaría
+
+Q_38: ¿Qué claridad tiene para ti este concepto de producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q38_A: Muy claro
+  Q38_B: Bastante claro
+  Q38_C: Neutral
+  Q38_D: Algo confuso
+  Q38_E: Muy confuso
+
+Q_39: ¿Te parece creíble este concepto viniendo de Orlando?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q39_A: Sí, muy creíble — encaja perfectamente con Orlando
+  Q39_B: Sí, bastante creíble
+  Q39_C: Neutral
+  Q39_D: Poco creíble — parece forzado
+  Q39_E: No, nada creíble
+
+Q_40: ¿Resuelve este producto una necesidad real para ti?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q40_A: Sí, definitivamente
+  Q40_B: Sí, en cierta medida
+  Q40_C: No realmente
+  Q40_D: No, en absoluto
+
+Q_41A: ¿Qué precio te parecería razonable para estos productos?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q41A_A: Menos de 0,50 €
+  Q41A_B: €0.50 - €1.00
+  Q41A_C: €1.00 - €1.50
+  Q41A_D: €1.50 - €2.00
+  Q41A_E: €2.00 - €2.50
+  Q41A_F: €2.50 - €3.00
+  Q41A_G: Más de 3,00 €
+
+Q_42A: ¿Cuándo utilizarías este producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q42A_A: Para comidas especiales o invitados
+  Q42A_B: Para las comidas familiares del domingo
+  Q42A_C: Siempre que cocine
+  Q42A_D: No lo usaría
+  Q42A_E: Otro [TEXT INPUT]
+
+Q_43: ¿Qué probabilidad hay de que compres este producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q43_A: Definitivamente lo compraría
+  Q43_B: Probablemente lo compraría
+  Q43_C: Puede que sí o puede que no
+  Q43_D: Probablemente no lo compraría
+  Q43_E: Definitivamente no lo compraría
+
+Q_50A: ¿Qué te frenaría a la hora de comprar este producto?
+TYPE: Multiple Select
+MANDATORY: Yes
+OPTIONS:
+  Q50A_A: Precio demasiado alto
+  Q50A_B: Prefiero hacerlo desde cero
+  Q50A_C: Demasiado procesado
+  Q50A_D: Beneficio poco claro frente al tomate frito normal
+  Q50A_E: Demasiado moderno / no encaja con Orlando
+  Q50A_F: Preferiría comprarlo de otra marca
+  Q50A_G: Nada — me interesaría
+  Q50A_H: Otro [TEXT INPUT]
+
+--- CONCEPTO B: ORLANDO FRITO FOR HOSTFOOD ---
+
+CONCEPT_B_INTRO:
+Gama "Especial" de Orlando — bases de tomate más elaboradas y específicas para cada receta que van más allá del tomate frito estándar. Cuatro variantes diseñadas para platos concretos:
+· Especial Pasta (base más rica y ligeramente dulce con hierbas para pasta)
+· Especial Pizza (consistencia más espesa con orégano y ajo)
+· Especial Arroz (base ligera y aromática para arroces)
+· Especial Albóndigas (salsa más contundente con cebolla y pimentón)
+
+Cada variante está optimizada en sabor, textura y condimentación para su uso específico. Formato brik. Posicionado como "Cocina de forma inteligente, no trabajosa" — para consumidores que quieren resultados de calidad de restaurante sin el esfuerzo de hacer una salsa desde cero.
+
+Q_44B: En general, ¿cuánto te atrae este concepto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q44B_A: Muy atractivo
+  Q44B_B: Bastante atractivo
+  Q44B_C: Neutral
+  Q44B_D: Poco atractivo
+  Q44B_E: Nada atractivo
+
+Q_45B: ¿Qué relevancia tendría este producto en tu vida cotidiana?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q45B_A: Muy relevante — lo usaría habitualmente
+  Q45B_B: Bastante relevante — lo usaría ocasionalmente
+  Q45B_C: Algo relevante — podría probarlo una vez
+  Q45B_D: No relevante — no lo usaría
+
+Q_46B: ¿Qué claridad tiene para ti este concepto de producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q46B_A: Muy claro
+  Q46B_B: Bastante claro
+  Q46B_C: Neutral
+  Q46B_D: Algo confuso
+  Q46B_E: Muy confuso
+
+Q_47B: ¿Te parece creíble este concepto viniendo de Orlando?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q47B_A: Sí, muy creíble — encaja perfectamente con Orlando
+  Q47B_B: Sí, bastante creíble
+  Q47B_C: Neutral
+  Q47B_D: Poco creíble — parece forzado
+  Q47B_E: No, nada creíble
+
+Q_48B: ¿Resuelve este producto una necesidad real para ti?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q48B_A: Sí, definitivamente
+  Q48B_B: Sí, en cierta medida
+  Q48B_C: No realmente
+  Q48B_D: No, en absoluto
+
+Q_41B: ¿Qué precio te parecería razonable para estos productos?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q41B_A: Menos de 0,50 €
+  Q41B_B: €0.50 - €1.00
+  Q41B_C: €1.00 - €1.50
+  Q41B_D: €1.50 - €2.00
+  Q41B_E: €2.00 - €2.50
+  Q41B_F: €2.50 - €3.00
+  Q41B_G: Más de 3,00 €
+
+Q_42B: ¿Cuándo utilizarías este producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q42B_A: Para comidas especiales o invitados
+  Q42B_B: Para las comidas familiares del domingo
+  Q42B_C: Siempre que cocine
+  Q42B_D: No lo usaría
+  Q42B_E: Otro [TEXT INPUT]
+
+Q_49B: ¿Qué probabilidad hay de que compres este producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q49B_A: Definitivamente lo compraría
+  Q49B_B: Probablemente lo compraría
+  Q49B_C: Puede que sí o puede que no
+  Q49B_D: Probablemente no lo compraría
+  Q49B_E: Definitivamente no lo compraría
+
+Q_50B: ¿Qué te frenaría a la hora de comprar este producto?
+TYPE: Multiple Select
+MANDATORY: Yes
+OPTIONS:
+  Q50B_A: Precio demasiado alto
+  Q50B_B: Prefiero hacerlo desde cero
+  Q50B_C: Demasiado procesado
+  Q50B_D: Beneficio poco claro frente al tomate frito normal
+  Q50B_E: Demasiado moderno / no encaja con Orlando
+  Q50B_F: Preferiría comprarlo de otra marca
+  Q50B_G: Nada — me interesaría
+  Q50B_H: Otro [TEXT INPUT]
+
+--- CONCEPTO C: ORLANDO FRITO INNO PACKAGING ---
+
+CONCEPT_C_INTRO:
+Orlando tomate frito reimaginado con nuevos formatos de envase innovadores que mejoran la comodidad, la frescura y la facilidad de uso. Dos subvariantes evaluadas:
+(1) Bolsa flexible / Doypack — una bolsa de plástico rígida y resellable (similar a una bolsa de alimentos) que ofrece portabilidad, vertido fácil y control de porciones
+(2) Tubo de aluminio — un formato de tubo de aluminio comprimible (similar a los tubos de tomate concentrado o anchoas) que permite una dosificación precisa y una mayor vida útil tras la apertura.
+
+Ambos formatos contienen la misma receta de confianza de Orlando tomate frito. Posicionado como "Cocina de forma inteligente, no trabajosa" — envases innovadores diseñados para cocinas modernas donde importan la comodidad y la reducción de residuos.
+
+Q_44C: En general, ¿cuánto te atrae este concepto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q44C_A: Muy atractivo
+  Q44C_B: Bastante atractivo
+  Q44C_C: Neutral
+  Q44C_D: Poco atractivo
+  Q44C_E: Nada atractivo
+
+Q_45C: ¿Qué relevancia tendría este producto en tu vida cotidiana?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q45C_A: Muy relevante — lo usaría habitualmente
+  Q45C_B: Bastante relevante — lo usaría ocasionalmente
+  Q45C_C: Algo relevante — podría probarlo una vez
+  Q45C_D: No relevante — no lo usaría
+
+Q_46C: ¿Qué claridad tiene para ti este concepto de producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q46C_A: Muy claro
+  Q46C_B: Bastante claro
+  Q46C_C: Neutral
+  Q46C_D: Algo confuso
+  Q46C_E: Muy confuso
+
+Q_47C: ¿Te parece creíble este concepto viniendo de Orlando?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q47C_A: Sí, muy creíble — encaja perfectamente con Orlando
+  Q47C_B: Sí, bastante creíble
+  Q47C_C: Neutral
+  Q47C_D: Poco creíble — parece forzado
+  Q47C_E: No, nada creíble
+
+Q_48C: ¿Resuelve este producto una necesidad real para ti?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q48C_A: Sí, definitivamente
+  Q48C_B: Sí, en cierta medida
+  Q48C_C: No realmente
+  Q48C_D: No, en absoluto
+
+Q_41C: ¿Qué precio te parecería razonable para estos productos?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q41C_A: Menos de 0,50 €
+  Q41C_B: €0.50 - €1.00
+  Q41C_C: €1.00 - €1.50
+  Q41C_D: €1.50 - €2.00
+  Q41C_E: €2.00 - €2.50
+  Q41C_F: €2.50 - €3.00
+  Q41C_G: Más de 3,00 €
+
+Q_42C: ¿Cuándo utilizarías este producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q42C_A: Para comidas especiales o invitados
+  Q42C_B: Para las comidas familiares del domingo
+  Q42C_C: Siempre que cocine
+  Q42C_D: No lo usaría
+  Q42C_E: Otro [TEXT INPUT]
+
+Q_49C: ¿Qué probabilidad hay de que compres este producto?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q49C_A: Definitivamente lo compraría
+  Q49C_B: Probablemente lo compraría
+  Q49C_C: Puede que sí o puede que no
+  Q49C_D: Probablemente no lo compraría
+  Q49C_E: Definitivamente no lo compraría
+
+Q_50C: ¿Qué te frenaría a la hora de comprar este producto?
+TYPE: Multiple Select
+MANDATORY: Yes
+OPTIONS:
+  Q50C_A: Precio demasiado alto
+  Q50C_B: Prefiero hacerlo desde cero
+  Q50C_C: Demasiado procesado
+  Q50C_D: Beneficio poco claro frente al tomate frito normal
+  Q50C_E: Demasiado moderno / no encaja con Orlando
+  Q50C_F: Preferiría comprarlo de otra marca
+  Q50C_G: Nada — me interesaría
+  Q50C_H: Otro [TEXT INPUT]
+
+--- FINAL QUESTIONS ---
+
+Q_65: En general, ¿cuál de los conceptos mostrados (A, B o C) te interesa MÁS?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q65_A: Concepto A: Alternativas Ricas en Nutrientes (Proteína/Fibra/Sin Azúcar)
+  Q65_B: Concepto B: Frito for Hostfood (Gama Especial)
+  Q65_C: Concepto C: Inno Packaging (Bolsa/Tubo de Aluminio)
+  Q65_D: Ninguno de ellos
+
+Q_66: ¿Cuál de los conceptos te resulta MENOS interesante?
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q66_A: Concepto A: Alternativas Ricas en Nutrientes (Proteína/Fibra/Sin Azúcar)
+  Q66_B: Concepto B: Frito for Hostfood (Gama Especial)
+  Q66_C: Concepto C: Inno Packaging (Bolsa/Tubo de Aluminio)
+  Q66_D: Todos me resultan igualmente poco interesantes
+
+Q_67: Si Orlando innovara, ¿qué te haría prestar atención y plantearte volver a comprarlos o probarlos?
+TYPE: Text Long
+MANDATORY: Yes
+PROMPT: (Pregunta abierta)
+
+Q_68: ¿Hay algo más que quieras compartir sobre el tomate frito, Orlando o tus preferencias de compra?
+TYPE: Text Long
+MANDATORY: Yes
+PROMPT: (Pregunta abierta)
+
+---
+
+SECTION 11: DATOS DEMOGRÁFICOS
+
+Q_69: Composición del hogar:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q69_A: Persona sola
+  Q69_B: Pareja sin hijos
+  Q69_C: Pareja con hijos en casa
+  Q69_D: Padre/madre soltero/a con hijos
+  Q69_E: Hogar multigeneracional
+  Q69_F: Piso compartido
+  Q69_G: Otro
+
+Q_70: Número de personas en el hogar:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q70_A: 1
+  Q70_B: 2
+  Q70_C: 3
+  Q70_D: 4
+  Q70_E: 5 o más
+
+Q_71: Número de niños menores de 18 años en el hogar:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q71_A: 0
+  Q71_B: 1
+  Q71_C: 2
+  Q71_D: 3 o más
+
+Q_72: Ingresos anuales del hogar (aproximados):
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q72_A: Menos de 20.000 €
+  Q72_B: €20,000 - €34,999
+  Q72_C: €35,000 - €49,999
+  Q72_D: €50,000 - €74,999
+  Q72_E: €75,000 - €89,999
+  Q72_F: 90.000 € o más
+  Q72_G: Prefiero no decirlo
+
+Q_73: Situación laboral:
+TYPE: Single Select
+MANDATORY: Yes
+OPTIONS:
+  Q73_A: Trabajador/a a jornada completa
+  Q73_B: Trabajador/a a tiempo parcial
+  Q73_C: Autónomo/a
+  Q73_D: Estudiante
+  Q73_E: Jubilado/a
+  Q73_F: Amo/a de casa
+  Q73_G: Desempleado/a
+  Q73_H: Prefiero no decirlo
+
+---
+
+CLOSING
+
+¡Gracias por completar esta encuesta! Tus respuestas nos ayudarán a mejorar los productos y servicios de la categoría de salsas de tomate.
+
+---
+
+END SURVEY
